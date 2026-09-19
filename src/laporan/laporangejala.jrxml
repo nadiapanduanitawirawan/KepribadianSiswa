@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="85e74144-d169-490e-863c-5bc68d03dab3">
+	<property name="ireport.zoom" value="3.138428376721021"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="426"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     gejalaa.`id_gejala` AS gejalaa_id_gejala,
+     gejalaa.`nama_gejala` AS gejalaa_nama_gejala
+FROM
+     `gejalaa` gejalaa
+ORDER BY
+     CAST(SUBSTRING(gejalaa.`id_gejala`,3) AS UNSIGNED)]]>
+	</queryString>
+	<field name="gejalaa_id_gejala" class="java.lang.String"/>
+	<field name="gejalaa_nama_gejala" class="java.lang.String"/>
+	<variable name="JUMLAH_DATA" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{gejalaa_id_gejala}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="143" splitType="Stretch">
+			<staticText>
+				<reportElement x="173" y="86" width="354" height="19" uuid="11bcceb8-f8f7-49f1-a182-59cadd3de59a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jalan Pekapuran Kel. Curug Kec. Cimanggis Kota Depok 16963 Telp : (021) 8744810]]></text>
+			</staticText>
+			<image>
+				<reportElement x="11" y="0" width="158" height="130" uuid="22c6cb46-584e-45f1-8ff4-26adf5c51384"/>
+				<imageExpression><![CDATA["C:\\Users\\WAHYU YUDI SETIYAWAN\\Downloads\\tbnih.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="179" y="32" width="340" height="38" uuid="1236b259-5b3c-4739-bd27-ed06d4311b13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Broadway" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SMK TARUNA BHAKTI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="179" y="68" width="342" height="19" uuid="505f6d91-7faf-4a91-857c-85b89de89e75"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[TERAKREDITAS : "A" No : 02.00/203/BAN-SM/II/2018]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="7" width="272" height="38" uuid="55d63e0c-f56e-4cfb-a394-5b505139e972"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB" size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[YAYASAN SETYA BHAKTI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="101" width="283" height="19" uuid="1df54742-383b-4478-92d3-33002b4844c2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Website : www.smktarunabhakti.net / e-mail : taruna@smktarunabhakti.net]]></text>
+			</staticText>
+			<line>
+				<reportElement x="11" y="134" width="531" height="1" uuid="05a983ec-abfc-439c-ab39-341facd7b303"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="146" y="3" width="264" height="32" uuid="06053a0c-c59c-4d0d-813e-1dfe8aeb98d7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="22" isBold="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DATA GEJALA]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="0" y="43" width="200" height="16" forecolor="#000000" uuid="9e4b1c22-7d3e-4b5a-8f61-3c2a5d6e7f80"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Jumlah Data : " + $V{JUMLAH_DATA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="19" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="33" height="19" uuid="4bc0fac5-ab45-442e-936a-5caa24e3ecc9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-433" y="-7" width="33" height="19" uuid="274cc68e-777b-4aae-bc0a-9d8a8cf68e15"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-400" y="-7" width="90" height="19" uuid="d00bbf08-780b-4a07-85dc-16c0221244ce"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="33" y="0" width="55" height="19" uuid="933f0d21-4e6e-457c-861d-64835d0779a8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="88" y="0" width="466" height="19" uuid="6ba83b38-4abd-43ac-be18-98761d835c07"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="41" y="0" width="47" height="19" uuid="e2f2a8df-d9ca-4c95-a33e-f3f93709e3a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="0" width="22" height="19" uuid="6f4897eb-03d5-4727-8677-d9dfe45adbc4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="0" width="100" height="19" uuid="4ec281fe-8e85-4467-a3b9-216628ac2e0a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Nama Gejala]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-400" y="-7" width="90" height="19" uuid="63a94ffd-f784-4ad0-8d93-fbbf2db87e9d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="33" height="19" uuid="fbb104cf-d924-4da3-ab7a-506f45292c88"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="88" y="0" width="466" height="19" uuid="27dfb30c-28aa-4ad3-85a3-5053b57260a9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="33" y="0" width="55" height="19" uuid="cef6e492-a5e2-4bdc-a44f-601790ae163d"/>
+			</rectangle>
+			<textField>
+				<reportElement x="33" y="1" width="55" height="18" uuid="72461f50-9a10-47e3-9370-b769eae9ce74"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gejalaa_id_gejala}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="98" y="0" width="456" height="19" uuid="f5a5c75c-09c3-4aba-b709-041dad8bb096"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="10" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gejalaa_nama_gejala}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="0" width="22" height="19" uuid="7ad96c3c-6b2d-4591-bbd8-40550dc14b56"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="83" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-355" y="-7" width="250" height="19" uuid="27068e81-fe26-4ffe-a48f-270f02865aaa"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-433" y="-7" width="33" height="19" uuid="6f3cd7d7-38e3-4dda-9e4d-9f560407cca6"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-400" y="-7" width="90" height="19" uuid="8b0a3be0-48d0-4433-8e36-57810b01da4c"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="251" y="32" width="50" height="20" uuid="bcac8eb3-d62f-407b-b122-84e2fc4c09d0"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Halaman :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="301" y="32" width="50" height="20" uuid="4940a83b-a368-4110-b58a-c52df572cf44"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="439" y="12" width="46" height="20" uuid="d1e94a42-630f-4796-b740-1ecce4424370"/>
+				<textElement>
+					<font fontName="Roboto" size="8"/>
+				</textElement>
+				<text><![CDATA[Depok,]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="467" y="12" width="88" height="20" uuid="7a045f0f-9134-47dc-aa1a-668c12826d45"/>
+				<textElement textAlignment="Left">
+					<font fontName="Roboto" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat(
+                "EEEE, dd MMMM yyyy",
+                new java.util.Locale("id","ID")
+            ).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="459" y="52" width="77" height="15" uuid="66ae5e0b-48f3-4a9d-bb2e-32f4ed66546a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ika Rafika, S. Pd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="67" width="112" height="15" uuid="6801d39c-9a3d-49ff-ad4a-bc736da65d47"/>
+				<textElement textAlignment="Center">
+					<font fontName="Roboto" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Guru Bimbingan dan Konseling]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="8" splitType="Stretch"/>
+	</summary>
+</jasperReport>

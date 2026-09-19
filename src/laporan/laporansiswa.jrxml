@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a603250b-ad9f-44c3-b036-93b861a265a8">
+	<property name="ireport.zoom" value="1.9487171000000025"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="34"/>
+	<parameter name="P_JURUSAN" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+    datasiswa.nisn AS datasiswa_nisn,
+    datasiswa.nama_siswa AS datasiswa_nama_siswa,
+    datasiswa.kelas AS datasiswa_kelas,
+    datasiswa.jurusan AS datasiswa_jurusan,
+    datasiswa.jenis_kelamin AS datasiswa_jenis_kelamin
+FROM datasiswa
+WHERE (
+      $P{P_JURUSAN} IS NULL
+      OR datasiswa.jurusan = $P{P_JURUSAN}
+)
+ORDER BY jurusan, nama_siswa]]>
+	</queryString>
+	<field name="datasiswa_nisn" class="java.lang.String"/>
+	<field name="datasiswa_nama_siswa" class="java.lang.String"/>
+	<field name="datasiswa_kelas" class="java.lang.String"/>
+	<field name="datasiswa_jurusan" class="java.lang.String"/>
+	<field name="datasiswa_jenis_kelamin" class="java.lang.String"/>
+	<variable name="JUMLAH_DATA" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{datasiswa_nisn}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="141" splitType="Stretch">
+			<image>
+				<reportElement x="10" y="0" width="158" height="130" uuid="36499de8-7763-45da-baff-271ee4742fe2"/>
+				<imageExpression><![CDATA["C:\\Users\\WAHYU YUDI SETIYAWAN\\Downloads\\tbnih.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="208" y="7" width="272" height="38" uuid="814174d3-2e3a-4f20-afe3-0449cc6cb164"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB" size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[YAYASAN SETYA BHAKTI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="32" width="340" height="38" uuid="39471cc9-fc6e-45ce-a6d2-1dcaf2b73a76"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Broadway" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SMK TARUNA BHAKTI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="67" width="342" height="19" uuid="e3710e91-b08c-4e54-92c9-14d0087afad5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[TERAKREDITAS : "A" No : 02.00/203/BAN-SM/II/2018]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="86" width="354" height="19" uuid="2b24ebd2-2490-4f86-9073-8812e053d7da"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jalan Pekapuran Kel. Curug Kec. Cimanggis Kota Depok 16963 Telp : (021) 8744810]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="208" y="101" width="283" height="19" uuid="078e43ae-b557-4eeb-896a-974d16a5747e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Website : www.smktarunabhakti.net / e-mail : taruna@smktarunabhakti.net]]></text>
+			</staticText>
+			<line>
+				<reportElement x="10" y="134" width="531" height="1" uuid="6ed1c66a-bc7d-46d1-af72-d8072a7ecf30"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="181" y="0" width="192" height="32" uuid="95eb088d-a9bb-4738-ba8a-65a800dabc0f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="22" isBold="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DATA SISWA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="406" y="38" width="148" height="20" forecolor="#000000" uuid="a1b2c3d4-1111-2222-3333-444455556666"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Roboto" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_JURUSAN} == null || $P{P_JURUSAN}.trim().isEmpty() ? "Kelas : SELURUH KELAS X" : "Kelas : X " + $P{P_JURUSAN}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="0" y="42" width="200" height="16" uuid="8d63c11b-255e-453f-9b7c-54273edf78bf"/>
+				<textElement textAlignment="Left">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Jumlah Data Siswa : " + $V{JUMLAH_DATA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="19" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="78" height="19" uuid="5be910b6-7c85-4ca3-92ab-2b7b7e7cef0b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="78" y="0" width="250" height="19" uuid="01e1ac63-2435-498a-aed8-214cb9ed837a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="328" y="0" width="89" height="19" uuid="f100b6fc-bf43-46cd-83e4-199615c9f5df"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="467" y="0" width="87" height="19" uuid="690e8fca-218c-41da-b160-f5ad951f5977"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="417" y="0" width="50" height="19" uuid="4efe2be7-5606-4659-88d4-6ee40c14c61b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="0" width="57" height="19" uuid="fe507efc-c990-4c8c-a74c-20683fa3dc04"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NISN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="0" width="227" height="19" uuid="8f8bbf84-b6d6-45dd-85bf-084187141741"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Siswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="421" y="0" width="42" height="19" uuid="83d37372-d8b4-4748-9a63-4428a3e9b1d6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="0" width="66" height="19" uuid="bb1d9a9b-3411-425f-a472-4d72cdc4ddc0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jenis Kelamin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="488" y="0" width="46" height="19" uuid="4c083b7a-84ea-482d-be5f-4c23a1abdd6b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jurusan]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="78" height="19" uuid="fe7206ac-b558-466c-b892-1039484bd769"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="0" width="78" height="19" uuid="5134e05d-7a92-434f-af6b-da5f64f8bacb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datasiswa_nisn}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="78" y="0" width="250" height="19" uuid="9cf8ad0d-4a38-43aa-b31c-f03b21746329"/>
+			</rectangle>
+			<textField>
+				<reportElement x="82" y="0" width="235" height="19" uuid="62ef017d-1022-4587-9373-5a8f1eccd527"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Roboto" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datasiswa_nama_siswa}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="328" y="0" width="89" height="19" uuid="e559e4aa-9ae0-492e-95ec-e5dc8d327f5c"/>
+			</rectangle>
+			<textField>
+				<reportElement x="336" y="0" width="72" height="19" uuid="57d27305-3eaa-4ea7-8f9a-726737aa9dbe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datasiswa_jenis_kelamin}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="417" y="0" width="50" height="19" uuid="0619a4f7-557d-4246-8c0c-4d0212fecb93"/>
+			</rectangle>
+			<textField>
+				<reportElement x="426" y="0" width="31" height="19" uuid="bd150534-f3c2-45da-8e5a-3182a9ca3fd2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datasiswa_kelas}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="467" y="0" width="87" height="19" uuid="408ab88d-a4c9-41f7-b5c6-64fc92c277b3"/>
+			</rectangle>
+			<textField>
+				<reportElement x="480" y="0" width="62" height="19" uuid="af641939-f4d3-47ef-93d0-9add1a0fa4b1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datasiswa_jurusan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="101" splitType="Stretch">
+			<staticText>
+				<reportElement x="253" y="5" width="50" height="20" uuid="b1b2c3d4-0001-4a1a-9a1a-000000000001"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Halaman :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="305" y="5" width="50" height="20" uuid="b1b2c3d4-0002-4a1a-9a1a-000000000002"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="452" y="30" width="36" height="20" uuid="172d351b-5db0-4b36-9936-d20c729a4e7f"/>
+				<textElement>
+					<font fontName="Roboto" size="8"/>
+				</textElement>
+				<text><![CDATA[Depok,]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="480" y="30" width="73" height="20" uuid="48018536-3a18-4204-b6df-ee77eca63f23"/>
+				<textElement textAlignment="Left">
+					<font fontName="Roboto" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat(     "EEEE, dd MMMM yyyy",     new java.util.Locale("id","ID") ).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="461" y="70" width="77" height="15" uuid="545582c3-0784-4e83-81cc-6dc21025fa6a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ika Rafika, S. Pd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="85" width="112" height="15" uuid="43a10651-6556-475c-ab51-f568e2ce0b45"/>
+				<textElement textAlignment="Center">
+					<font fontName="Roboto" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Guru Bimbingan dan Konseling]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="8" splitType="Stretch"/>
+	</summary>
+</jasperReport>
